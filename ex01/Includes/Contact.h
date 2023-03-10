@@ -1,6 +1,8 @@
 //Contact.h
+#ifndef CONTACT_H
+# define CONTACT_H
 
-#include <iostream>
+# include <iostream>
 
 class Contact {
 	public:
@@ -30,3 +32,5 @@ class Contact {
 		std::string	Secret;
 		int			Index;
 };
+
+#endif
