@@ -1,4 +1,4 @@
-NAME = Phonebook
+NAME = Account 
 
 CC = c++
 OBJS_DIR = obj

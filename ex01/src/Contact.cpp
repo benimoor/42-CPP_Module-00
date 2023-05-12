@@ -1,39 +1,62 @@
-//Contact.cpp
+#include "Contact.hpp"
 
-#include "Contact.h"
-
-Contact::Contact(){}
-
-Contact::~Contact(){}
-
-void            Contact::setFirstName(std::string FirstName){
-    this->FirstName = FirstName;
-}
-
-void			Contact::setLastName(std::string LastName){
-    this->LastName = LastName;
-}
-
-void			Contact::setNickname(std::string Nickname){
-    this->Nickname = Nickname;
-}
-
-void            Contact::setSecret(std::string Secret){
-    this->Secret = Secret;
-}
-
-void			Contact::setIndex(int index){
-    this->Index = index;
-}
-
-void            Contact::setPhoneNumber(std::string PhoneNumber)
+void Contact::setFirstName(std::string r_fname)
 {
-    this->PhoneNumber = PhoneNumber;
+    m_fname = r_fname;
 }
 
-std::string		Contact::getFirstName(){return FirstName;}
-std::string		Contact::getLastName(){return LastName;}
-std::string		Contact::getNickname(){return Nickname;}
-std::string		Contact::getPhoneNumber(){return PhoneNumber;}
-std::string		Contact::getSecret(){return Secret;}
-int				Contact::getIndex(){return Index;}
+void Contact::setLastName(std::string r_lname)
+{
+    m_lname = r_lname;
+}
+
+void Contact::setNickName(std::string r_nname)
+{
+    m_nname = r_nname;
+}
+
+void Contact::setPhone(std::string r_phone)
+{
+    m_phone = r_phone;
+}
+
+void Contact::setSecret(std::string r_secret)
+{
+    m_secret = r_secret;
+}
+
+void Contact::setId(int r_id)
+{
+    m_id = r_id;
+}
+
+std::string Contact::getFirstName() const
+{
+    return m_fname;
+}
+
+std::string Contact::getLastName() const
+{
+    return m_lname;
+}
+
+std::string Contact::getNickName() const
+{
+    return m_nname;
+}
+
+std::string Contact::getPhone() const
+{
+    return m_phone;
+}
+
+std::string Contact::getSecret() const
+{
+    return m_secret;
+}
+
+int			Contact::getId() const
+{
+    return m_id;
+}
+

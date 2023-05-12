@@ -1,16 +1,16 @@
-// PhoneBook.cpp
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ergrigor <ergrigor@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/05 22:32:02 by ergrigor          #+#    #+#             */
+/*   Updated: 2023/05/05 22:58:25 by ergrigor         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "PhoneBook.h"
-#include <iomanip>
-#include <cstdlib>
-
-PhoneBook::PhoneBook()
-{
-	this->Index = 0;
-	this->Size = 0;
-}
-
-PhoneBook::~PhoneBook(){};
+#include "PhoneBook.hpp"
 
 static void	PrintInfo(std::string str)
 {
@@ -20,12 +20,53 @@ static void	PrintInfo(std::string str)
 		std::cout << std::setw(10) << str << '|';
 }
 
+PhoneBook::~PhoneBook(){}
+
+PhoneBook::PhoneBook()
+{
+    Index = 0;
+    Size = 0;
+}
+
+void	PhoneBook::AddContact(std::string info[5], int Index)
+{
+    arr[Index].setFirstName(info[0]);
+    arr[Index].setLastName(info[1]);
+    arr[Index].setNickName(info[2]);
+    arr[Index].setPhone(info[3]);
+    arr[Index].setSecret(info[4]);
+    arr[Index].setId(Index);
+    if (this->Index > 7)
+        this->Index = 0;
+    if (Size < 8)
+        Size++;
+}
+
+void	PhoneBook::PrintContact(int Index)
+{
+    if (Index < Size)
+    {
+        std::cout << "First Name:\t" << arr[Index].getFirstName() << "\n";
+        std::cout << "Last Name:\t" << arr[Index].getLastName() << "\n";
+        std::cout << "Nickname:\t" << arr[Index].getNickName() << "\n";
+        std::cout << "Phone Number:\t" << arr[Index].getPhone() << "\n";
+        std::cout << "Darkest Secret:\t" << arr[Index].getSecret() << "\n";
+    }
+    else
+	{
+		std::cout << "Lets try again\n chnayats sranq angleren chen haskanum" << std::endl;
+	}
+}
+
 void	PhoneBook::setIndex(int Index)
 {
 	this->Index = Index;
 }
 
-int		PhoneBook::getIndex(){return Index;}
+int		PhoneBook::getIndex() const
+{
+    return Index;
+}
 
 void	PhoneBook::PrintPhoneBook()
 {
@@ -38,27 +79,12 @@ void	PhoneBook::PrintPhoneBook()
 	std::cout << std::endl;
 	for (int i = 0; i < this->Size; i++)
 	{
-		std::cout << '|' << std::setw(10) << ArrayContact[i].getIndex() << '|';
-		PrintInfo(ArrayContact[i].getFirstName());
-		PrintInfo(ArrayContact[i].getLastName());
-		PrintInfo(ArrayContact[i].getNickname());
+		std::cout << '|' << std::setw(10) << arr[i].getId() << '|';
+		PrintInfo(arr[i].getFirstName());
+		PrintInfo(arr[i].getLastName());
+		PrintInfo(arr[i].getNickName());
 		std::cout << std::endl;
 	}
-}
-
-void	PhoneBook::AddContact(std::string info[5], int Index)
-{
-	this->ArrayContact[Index].setFirstName(info[0]);
-	this->ArrayContact[Index].setLastName(info[1]);
-	this->ArrayContact[Index].setNickname(info[2]);
-	this->ArrayContact[Index].setPhoneNumber(info[3]);
-	this->ArrayContact[Index].setSecret(info[4]);
-	this->ArrayContact[Index].setIndex(Index);
-	this->Index++;
-	if (this->Index > 7)
-		Index = 0;
-	if (this->Size < 8)
-		this->Size++;
 }
 
 void	PhoneBook::SearchContact()
@@ -85,21 +111,5 @@ void	PhoneBook::SearchContact()
 			break ;
 		else
 			std::cout << "Wrong Index" << std::endl;
-	}
-}
-
-void	PhoneBook::PrintContact(int Index)
-{
-	if (Index < Size)
-	{
-		std::cout << "First Name:\t" << ArrayContact[Index].getFirstName() << std::endl;;
-		std::cout << "Last Name:\t" << ArrayContact[Index].getLastName() << std::endl;
-		std::cout << "Nick Name:\t" << ArrayContact[Index].getNickname() << std::endl;
-		std::cout << "Phone Number:\t" << ArrayContact[Index].getPhoneNumber() << std::endl;
-		std::cout << "Darkest Secret:\t" << ArrayContact[Index].getSecret() << std::endl;
-	}
-	else
-	{
-		std::cout << "Lets try again\n chnayats sranq angleren chen haskanum" << std::endl;
 	}
 }
