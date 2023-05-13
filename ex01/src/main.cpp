@@ -92,7 +92,10 @@ int main()
         std::cout << "Please input ADD/SEARCH/EXIT ->\t";
         getline(std::cin, line);
         if(std::cin.eof())
+        {
             std::cout << "Wrong input" << std::endl;
+            break;
+        }
         else if(line == "ADD")
             AddNewContact(&Book);
         else if(line == "SEARCH")

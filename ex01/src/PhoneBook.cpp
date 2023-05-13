@@ -6,7 +6,7 @@
 /*   By: ergrigor <ergrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 22:32:02 by ergrigor          #+#    #+#             */
-/*   Updated: 2023/05/05 22:58:25 by ergrigor         ###   ########.fr       */
+/*   Updated: 2023/05/13 17:29:34 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	PhoneBook::AddContact(std::string info[5], int Index)
     arr[Index].setId(Index);
     if (this->Index > 7)
         this->Index = 0;
+    this->Index++;
     if (Size < 8)
         Size++;
 }
@@ -102,6 +103,11 @@ void	PhoneBook::SearchContact()
 	{
 		std::cout << "Insert [0->" <<  (Size - 1) << "] to view contact details, or type `RETURN`, to return main menu:\t";
 		getline(std::cin, out);
+		if(std::cin.eof())
+		{
+			std::cout << "\nDavo mi ara\n";
+			exit(0);
+		}
 		if (out.length() == 1 && out[0] >= '0' && out[0] <= (char)(Size - 1 + (int)'0'))
 		{
 			PrintContact(std::atoi(out.c_str()));

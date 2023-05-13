@@ -6,7 +6,7 @@
 /*   By: ergrigor <ergrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 21:33:40 by ergrigor          #+#    #+#             */
-/*   Updated: 2023/05/05 21:48:33 by ergrigor         ###   ########.fr       */
+/*   Updated: 2023/05/13 17:24:19 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ int main(int ac, char *av[])
                     std::cout << av[i][y];
                 y++;
             }
-            std::cout << "\n";
+            std::cout << " ";
         }
+        std::cout << "\n";
     }
     else
     {

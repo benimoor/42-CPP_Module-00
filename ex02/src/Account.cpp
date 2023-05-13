@@ -6,7 +6,7 @@
 /*   By: ergrigor <ergrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 18:17:32 by ergrigor          #+#    #+#             */
-/*   Updated: 2023/05/12 21:51:14 by ergrigor         ###   ########.fr       */
+/*   Updated: 2023/05/13 17:31:29 by ergrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,8 @@ void Account::_displayTimestamp()
 {
     struct timeval t;
     gettimeofday(&t, NULL);
-    
-    // Convert timestamp to struct tm
     time_t timestamp = t.tv_sec;
     struct tm* timeinfo = localtime(&timestamp);
-    
-    // Format the components into the desired format
     std::ostringstream oss;
     oss << "[" << std::setfill('0') << std::setw(4) << (timeinfo->tm_year + 1900);
     oss << std::setfill('0') << std::setw(2) << (timeinfo->tm_mon + 1);
@@ -41,7 +37,6 @@ void Account::_displayTimestamp()
     oss << std::setfill('0') << std::setw(2) << timeinfo->tm_min;
     oss << std::setfill('0') << std::setw(2) << timeinfo->tm_sec;
     oss << "] ";
-    
     std::cout << oss.str();
 }
 
